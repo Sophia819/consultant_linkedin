@@ -17,8 +17,10 @@
             let field = dataTable.columns.find(column => column.fieldName === "Linkedin");
             
             for (let row of dataTable.data) {
-                url = row[field.index].value;
-                $('#logo').wrap('<a href="' + url + '" target="_blank"></a>');
+                if (row[field.index].value !== "%null%" && row[field.index].value !== "null") {
+                    url = row[field.index].value;
+                    $('#logo').wrap('<a href="' + url + '" target="_blank"></a>');
+                }
             };
 
             });
